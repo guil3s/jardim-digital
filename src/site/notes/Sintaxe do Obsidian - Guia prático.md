@@ -3,150 +3,106 @@
 ---
 
 
-> Referência rápida de Markdown + recursos nativos do Obsidian..
+> Referência rápida para Markdown, Obsidian, Mermaid, LaTeX e recursos avançados.
 
 ---
 
-# Formatação Básica
+# ⚡ Consulta Rápida
 
-|Recurso|Sintaxe|
-|---|---|
-|Título 1|`# Título`|
-|Título 2|`## Título`|
-|Título 3|`### Título`|
-|Negrito|`**texto**`|
-|Itálico|`*texto*`|
-|Negrito + Itálico|`***texto***`|
-|Riscado|`~~texto~~`|
-|Destaque|`==texto==`|
-|Código inline|`` `texto` ``|
-|Subscrito|`H~2~O`|
-|Sobrescrito|`X^2^`|
-|Linha horizontal|`---`|
-
----
-
-# Listas
-
-|Recurso|Sintaxe|
-|---|---|
-|Item|`- Item`|
-|Subitem|`- Subitem`|
-|Numerada|`1. Item`|
-|Tarefa|`- [ ] Fazer`|
-|Concluída|`- [x] Feito`|
-
----
-
-# Links
-
-|Recurso|Sintaxe|
-|---|---|
-|Link externo|`[Texto](https://site.com)`|
-|URL direta|`https://site.com`|
-|E-mail|`<email@dominio.com>`|
+|Categoria|Recurso|Sintaxe|
+|---|---|---|
+|Texto|Negrito|`**texto**`|
+|Texto|Itálico|`*texto*`|
+|Texto|Negrito + Itálico|`***texto***`|
+|Texto|Riscado|`~~texto~~`|
+|Texto|Destaque|`==texto==`|
+|Texto|Código|`` `texto` ``|
+|Texto|Subscrito|`H~2~O`|
+|Texto|Sobrescrito|`X^2^`|
+|Estrutura|Título 1|`# Título`|
+|Estrutura|Título 2|`## Título`|
+|Estrutura|Título 3|`### Título`|
+|Estrutura|Linha horizontal|`---`|
+|Lista|Item|`- Item`|
+|Lista|Subitem|`- Subitem`|
+|Lista|Numerada|`1. Item`|
+|Lista|Tarefa|`- [ ] Fazer`|
+|Lista|Concluída|`- [x] Feito`|
+|Link|Externo|`[Texto](https://site.com)`|
+|Link|URL|`https://site.com`|
+|Link|E-mail|`<email@dominio.com>`|
+|Tabela|Coluna|`|
+|Tabela|Alinhar esquerda|`:---`|
+|Tabela|Alinhar centro|`:---:`|
+|Tabela|Alinhar direita|`---:`|
+|Rodapé|Referência|`Texto[^1]`|
+|Rodapé|Definição|`[^1]: Nota`|
+|Comentário|Linha única|`%% comentário %%`|
+|Comentário|Multilinha|`%% ... %%`|
 
 ---
 
-# Tabelas
-
-Tabela simples:
+# 🔗 Wikilinks
 
 ```text
-| Nome | Setor |
-|------|------|
-| João | DAP |
-| Maria | RH |
-```
+\[\[Projeto\]\]
 
-Alinhamento:
+\[\[Projeto\|Meu Projeto\]\]
 
-|Tipo|Sintaxe|
-|---|---|
-|Esquerda|`:---`|
-|Centro|`:---:`|
-|Direita|`---:`|
+\[\[Projeto#Cronograma\]\]
 
----
-
-# Comentários
-
-|Recurso|Sintaxe|
-|---|---|
-|Linha única|`%% comentário %%`|
-|Multilinha|`%% ... %%`|
-
----
-
-# Notas de Rodapé
-
-|Recurso|Sintaxe|
-|---|---|
-|Referência|`Texto[^1]`|
-|Definição|`[^1]: Observação`|
-
----
-
-# Wikilinks
-
-```text
-[[Projeto]]
-
-[[Projeto|Meu Projeto]]
-
-[[Projeto#Cronograma]]
-
-[[Projeto#^prazo]]
+\[\[Projeto#^bloco\]\]
 ```
 
 ---
 
-# Embeds
+# 📥 Embeds
 
 ```text
-![[Projeto]]
+!\[\[Projeto\]\]
 
-![[Projeto#Cronograma]]
+!\[\[Projeto#Cronograma\]\]
 
-![[Projeto#^prazo]]
+!\[\[Projeto#^bloco\]\]
 ```
 
 ---
 
-# Referências de Bloco
-
-Criar bloco:
+# 🏷️ Tags
 
 ```text
-Prazo final: 30/06/2026
-^prazo
+\#projeto
+
+\#projeto/dap
+
+\#projeto/dap/ferias
+```
+
+---
+
+# 🧩 Referências de Bloco
+
+Criar:
+
+```text
+Texto importante
+
+^bloco
 ```
 
 Usar:
 
 ```text
-[[Projeto#^prazo]]
+\[\[Nota#^bloco\]\]
 
-![[Projeto#^prazo]]
+!\[\[Nota#^bloco\]\]
 ```
 
 ---
 
-# Tags
+# 📦 Callouts
 
-```text
-#projeto
-
-#projeto/dap
-
-#projeto/dap/ferias
-```
-
----
-
-# Callouts
-
-Tipos disponíveis:
+Tipos:
 
 ```text
 note
@@ -164,97 +120,60 @@ example
 quote
 ```
 
-Nota:
+Exemplos:
 
 ```text
-> [!note]
-> Conteúdo
+\> [!note]
+\> Conteúdo
 ```
 
-Dica:
-
 ```text
-> [!tip]
-> Conteúdo
+\> [!warning]
+\> Atenção
 ```
 
-Aviso:
-
 ```text
-> [!warning]
-> Conteúdo
+\> [!danger]
+\> Crítico
 ```
 
-Perigo:
+Expansível aberto:
 
 ```text
-> [!danger]
-> Conteúdo
+\> [!info]+ Detalhes
+\> Conteúdo
 ```
 
-Recolhível aberto:
+Expansível fechado:
 
 ```text
-> [!info]+ Detalhes
-> Conteúdo
-```
-
-Recolhível fechado:
-
-```text
-> [!info]- Detalhes
-> Conteúdo
+\> [!info]- Detalhes
+\> Conteúdo
 ```
 
 ---
 
-# Imagens e Arquivos
-
-Imagem:
+# 🖼️ Imagens e Arquivos
 
 ```text
-![[imagem.png]]
-```
+!\[\[imagem.png\]\]
 
-Redimensionar:
+!\[\[imagem.png\|300\]\]
 
-```text
-![[imagem.png|300]]
-```
+!\[\[imagem.png\|300x200\]\]
 
-Largura x Altura:
+!\[\[arquivo.pdf\]\]
 
-```text
-![[imagem.png|300x200]]
-```
+!\[\[arquivo.pdf#page=5\]\]
 
-PDF:
+!\[\[audio.mp3\]\]
 
-```text
-[[arquivo.pdf]]
-```
-
-Página específica:
-
-```text
-![[arquivo.pdf#page=5]]
-```
-
-Áudio:
-
-```text
-![[audio.mp3]]
-```
-
-Vídeo:
-
-```text
-![[video.mp4]]
+!\[\[video.mp4\]\]
 ```
 
 ---
 
-# Código
+# 💻 Código
 
 Inline:
 
@@ -287,79 +206,50 @@ css
 
 ---
 
-# Frontmatter
+# ⚙️ Frontmatter
 
 ```text
----
-title: Projeto Férias
+\---
+title: Minha Nota
 
 aliases:
-  - Ferias
+  - Alias
 
 tags:
   - projeto
-  - ferias
 
 created: 2026-06-08
-
-updated: 2026-06-08
----
+\---
 ```
 
 ---
 
-# LaTeX
-
-Inline:
+# 🧮 LaTeX
 
 ```text
-$E=mc^2$
-```
+\$E=mc^2\$
 
-Bloco:
-
-```text
-$
+\$\$
 E=mc^2
-$
-```
+\$\$
 
-Fração:
+\\frac{a}{b}
 
-```text
-\frac{a}{b}
-```
+\\sum_{i=1}^{n}
 
-Somatório:
+\\int_a^b
 
-```text
-\sum_{i=1}^{n}
-```
+\\sqrt{x}
 
-Integral:
-
-```text
-\int_a^b
-```
-
-Raiz:
-
-```text
-\sqrt{x}
-```
-
-Matriz:
-
-```text
-\begin{bmatrix}
+\\begin{bmatrix}
 1 & 2\\
 3 & 4
-\end{bmatrix}
+\\end{bmatrix}
 ```
 
 ---
 
-# Mermaid
+# 📊 Mermaid
 
 Tipos:
 
@@ -377,28 +267,40 @@ gantt
 
 Fluxograma:
 
-````text
-```mermaid
+```text
+\```mermaid
 flowchart TD
 A --> B
+\```
 ```
-````
 
 Sequência:
 
-````text
-```mermaid
+```text
+\```mermaid
 sequenceDiagram
 João->>Maria: Aprova?
 Maria->>João: Sim
+\```
 ```
-````
 
 ---
 
-# HTML Útil
+# 🌐 HTML Útil
 
-Recolhível:
+```text
+<details>
+
+<summary>
+
+<br>
+
+<mark>
+
+<kbd>
+```
+
+Exemplo:
 
 ```text
 <details>
@@ -409,50 +311,29 @@ Conteúdo
 </details>
 ```
 
-Teclas:
-
-```text
-<kbd>Ctrl</kbd> + <kbd>P</kbd>
-```
-
-Quebra de linha:
-
-```text
-<br>
-```
-
 ---
 
-# Query Blocks
-
-Buscar tag:
+# 🔍 Query Blocks
 
 ```text
 tag:#projeto
-```
 
-Buscar pasta:
-
-```text
 path:"Projetos"
-```
 
-Buscar texto:
-
-```text
 ferias
 ```
 
 ---
 
-# Escapar Caracteres
+# 🔐 Escapes Úteis
 
-```text
-\*texto\*
-
-\#tag
-
-\[\[Nota\]\]
-
-\|
-```
+|Quero mostrar|Digite|
+|---|---|
+|`[[Nota]]`|`\[\[Nota\]\]`|
+|`![[Nota]]`|`!\[\[Nota\]\]`|
+|`#tag`|`\#tag`|
+|`> texto`|`\> texto`|
+|`$formula$`|`\$formula\$`|
+|`$$formula$$`|`\$\$ formula \$\$`|
+|`|`|
+|`*texto*`|`\*texto\*`|
