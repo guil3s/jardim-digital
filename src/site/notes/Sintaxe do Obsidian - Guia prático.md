@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/sintaxe-do-obsidian-guia-pratico/","dg-note-properties":{}}
 ---
 
-> Referência compacta para uso diário. Sintaxes simples ficam em tabela. Sintaxes complexas possuem exemplos próprios.
+> Referência compacta para uso diário. Sintaxes simples ficam em tabela. Sintaxes complexas possuem exemplos próprios..
 
 ---
 
