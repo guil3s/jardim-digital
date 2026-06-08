@@ -702,7 +702,7 @@ Resultado:
 
 _Texto_
 
-[[Nota\|Nota]]
+[[Nota]]
 
 ---
 
@@ -759,43 +759,3 @@ Tags:
 #pessoa
 #reuniao
 ```
-
----
-
-# 27. O QUE VOCÊ PRECISA DECORAR
-
-Se souber apenas isto, já domina mais de 90% do Obsidian:
-
-````md
-# Título
-
-## Seção
-
-- [ ] Tarefa
-
-[[Nota\|Nota]]
-
-![[Nota\|Nota]]
-
-[[Nota#Título\|Nota#Título]]
-
-#tag
-
-> [!note]
-> Observação
-
-
-
-| Tabela | Exemplo |
-|---------|---------|
-
-^bloco
-
----
-Frontmatter
----
-
-```mermaid
-flowchart TD
-A --> B
-````
