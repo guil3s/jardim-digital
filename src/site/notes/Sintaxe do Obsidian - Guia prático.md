@@ -2,443 +2,105 @@
 {"dg-publish":true,"permalink":"/sintaxe-do-obsidian-guia-pratico/","dg-note-properties":{}}
 ---
 
-> Este guia mostra **a sintaxe**, **o resultado** e **quando usar** cada recurso.
+> Referência rápida. Procure o recurso na coluna "Função" e copie a sintaxe.
 
----
-
-# 1. TÍTULOS
-
-## Sintaxe
-
-```md
-# Projeto de Férias
-## Cronograma
-### Etapa 1
-```
-
-## Resultado
-
-# Projeto de Férias
-
-## Cronograma
-
-### Etapa 1
-
-## Uso
-
-Organizar a estrutura das notas.
-
----
-
-# 2. FORMATAÇÃO DE TEXTO
-
-## Negrito
-
-```md
-**Importante**
-```
-
-Resultado:
-
-**Importante**
-
----
-
-## Itálico
-
-```md
-*Observação*
-```
-
-Resultado:
-
-_Observação_
-
----
-
-## Negrito + Itálico
-
-```md
-***Urgente***
-```
-
-Resultado:
-
-_**Urgente**_
-
----
-
-## Riscado
-
-```md
-~~Cancelado~~
-```
-
-Resultado:
-
-~~Cancelado~~
-
----
-
-## Destaque
-
-```md
-==Prazo amanhã==
-```
-
-Resultado:
-
-==Prazo amanhã==
-
----
-
-## Código
-
-```md
-`Apps Script`
-```
-
-Resultado:
-
-`Apps Script`
-
----
-
-# 3. LISTAS
-
-## Lista simples
-
-```md
-- RH
-- DAP
-- Compras
-```
-
-Resultado:
-
-- RH
-- DAP
-- Compras
-
----
-
-## Lista hierárquica
-
-```md
-- Projeto
-  - Planejamento
-  - Execução
-```
-
-Resultado:
-
-- Projeto
-    - Planejamento
-    - Execução
-
----
-
-## Lista numerada
-
-```md
-1. Solicitação
-2. Aprovação
-3. Execução
-```
-
-Resultado:
-
-1. Solicitação
-2. Aprovação
-3. Execução
-
----
-
-# 4. TAREFAS
-
-## Sintaxe
-
-```md
-- [ ] Elaborar relatório
-- [x] Atualizar planilha
-```
-
-Resultado:
-
-- [ ] Elaborar relatório
-- [x] Atualizar planilha
-
-## Uso
-
-O Obsidian permite marcar/desmarcar clicando na caixa.
-
----
-
-# 5. LINKS EXTERNOS
-
-## Sintaxe
-
-```md
-[Portal do Servidor](https://servidor.gov.br)
-```
-
-Resultado:
-
-[Portal do Servidor](https://servidor.gov.br)
-
----
-
-# 6. WIKILINKS (SUPERPODER DO OBSIDIAN)
-
-## Criar link para outra nota
-
-```md
-[[Férias 2026]]
-```
-
-Se existir uma nota chamada "Férias 2026", ela será aberta.
-
-Se não existir, o Obsidian cria o link e permite criar a nota depois.
-
----
-
-## Alias
-
-```md
-[[Férias 2026|Plano de Férias]]
-```
-
-Resultado visual:
-
-Plano de Férias
-
----
-
-## Link para seção
-
-Nota:
-
-```md
-# Projeto
-
-## Cronograma
-```
-
-Link:
-
-```md
-[[Projeto#Cronograma]]
-```
-
-Vai abrir diretamente nessa seção.
-
----
-
-# 7. EMBEDS (INCORPORAR CONTEÚDO)
-
-## Mostrar outra nota dentro da nota atual
-
-```md
-![[Projeto]]
-```
-
-Resultado:
-
-Conteúdo da nota Projeto aparece dentro da nota atual.
-
----
-
-## Mostrar apenas uma seção
-
-```md
-![[Projeto#Cronograma]]
-```
-
-Resultado:
-
-Somente a seção Cronograma aparece.
-
----
-
-# 8. REFERÊNCIAS DE BLOCO
-
-## Criar bloco
-
-```md
-Prazo final: 30/06/2026
-^prazo
-```
-
-## Referenciar
-
-```md
-[[Projeto#^prazo]]
-```
-
-## Incorporar
-
-```md
-![[Projeto#^prazo]]
-```
-
-### Resultado
-
-Mostra apenas aquele trecho específico.
-
-Muito útil para dashboards.
-
----
-
-# 9. TAGS
-
-## Simples
-
-```md
-#ferias
-```
-
----
-
-## Hierárquicas
-
-```md
-#projeto
-
-#projeto/dap
-
-#projeto/dap/ferias
-```
-
-### Vantagem
-
-Ao pesquisar:
-
-```text
-#projeto
-```
-
-Você encontra tudo.
-
----
-
-# 10. TABELAS
-
-## Sintaxe
-
-```md
-| Nome | Setor | Status |
-|------|------|------|
-| João | DAP | Ativo |
-| Maria | RH | Férias |
-```
-
-Resultado:
-
-|Nome|Setor|Status|
+|Categoria|Função|Sintaxe|
 |---|---|---|
-|João|DAP|Ativo|
-|Maria|RH|Férias|
+|Texto|Negrito|`**texto**`|
+|Texto|Itálico|`*texto*`|
+|Texto|Negrito + Itálico|`***texto***`|
+|Texto|Riscado|`~~texto~~`|
+|Texto|Destacado|`==texto==`|
+|Texto|Código inline|`` `texto` ``|
+|Texto|Subscrito|`H~2~O`|
+|Texto|Sobrescrito|`X^2^`|
+|Estrutura|Título 1|`# Título`|
+|Estrutura|Título 2|`## Título`|
+|Estrutura|Título 3|`### Título`|
+|Estrutura|Linha horizontal|`---`|
+|Lista|Item|`- Item`|
+|Lista|Subitem|`- Subitem`|
+|Lista|Numerada|`1. Item`|
+|Lista|Tarefa|`- [ ] Fazer`|
+|Lista|Concluída|`- [x] Feito`|
+|Link|Externo|`[Texto](https://site.com)`|
+|Link|URL direta|`https://site.com`|
+|Link|E-mail|`<email@dominio.com>`|
+|Obsidian|Nota|`[[Projeto]]`|
+|Obsidian|Nota com alias|`[[Projeto\|Meu Projeto]]`|
+|Obsidian|Cabeçalho|`[[Projeto#Cronograma]]`|
+|Obsidian|Cabeçalho com alias|`[[Projeto#Cronograma\|Cronograma]]`|
+|Obsidian|Bloco|`[[Projeto#^prazo]]`|
+|Obsidian|Nota incorporada|`![[Projeto]]`|
+|Obsidian|Seção incorporada|`![[Projeto#Cronograma]]`|
+|Obsidian|Bloco incorporado|`![[Projeto#^prazo]]`|
+|Obsidian|Criar bloco|`Texto importante
+{ #bloco}
+`|
+|Tags|Tag simples|`#projeto`|
+|Tags|Tag hierárquica|`#projeto/dap`|
+|Tags|Tag multinível|`#projeto/dap/ferias`|
+|Citação|Simples|`> Texto`|
+|Citação|Aninhada|`>> Texto`|
+|Callout|Nota|`> [!note]`|
+|Callout|Informação|`> [!info]`|
+|Callout|Dica|`> [!tip]`|
+|Callout|Aviso|`> [!warning]`|
+|Callout|Perigo|`> [!danger]`|
+|Callout|Sucesso|`> [!success]`|
+|Callout|Pergunta|`> [!question]`|
+|Callout|Erro/Bug|`> [!bug]`|
+|Callout|Citação|`> [!quote]`|
+|Callout|Expansível aberto|`> [!info]+ Título`|
+|Callout|Expansível fechado|`> [!info]- Título`|
+|Tabela|Básica|`\| Col1 \| Col2 \|`|
+|Tabela|Alinhar esquerda|`:---`|
+|Tabela|Alinhar centro|`:---:`|
+|Tabela|Alinhar direita|`---:`|
+|Rodapé|Referência|`Texto[^1]`|
+|Rodapé|Definição|`[^1]: Observação`|
+|Comentário|Linha única|`%% comentário %%`|
+|Comentário|Multilinha|`%% ... %%`|
+|Imagem|Inserir|`![[imagem.png]]`|
+|Imagem|Largura|`![[imagem.png\|300]]`|
+|Imagem|Largura x Altura|`![[imagem.png\|300x200]]`|
+|PDF|Inserir|`[[arquivo.pdf]]`|
+|PDF|Página específica|`![[arquivo.pdf#page=5]]`|
+|Áudio|Inserir|`![[audio.mp3]]`|
+|Vídeo|Inserir|`![[video.mp4]]`|
+|Código|Bloco|` ```linguagem ``` `|
+|Código|JS|` ```javascript ``` `|
+|Código|SQL|` ```sql ``` `|
+|Código|JSON|` ```json ``` `|
+|Código|YAML|` ```yaml ``` `|
+|Matemática|Fórmula inline|`$E=mc^2$`|
+|Matemática|Fórmula bloco|`$$ fórmula $$`|
+|Matemática|Fração|`\frac{a}{b}`|
+|Matemática|Somatório|`\sum_{i=1}^{n}`|
+|Matemática|Integral|`\int_a^b`|
+|Matemática|Matriz|`\begin{bmatrix}...\end{bmatrix}`|
+|Mermaid|Fluxograma|`flowchart TD`|
+|Mermaid|Sequência|`sequenceDiagram`|
+|Mermaid|Classe|`classDiagram`|
+|Mermaid|Gantt|`gantt`|
+|Mermaid|ERD|`erDiagram`|
+|Mermaid|Timeline|`timeline`|
+|Mermaid|Jornada|`journey`|
+|HTML|Recolhível|`<details>`|
+|HTML|Título recolhível|`<summary>`|
+|HTML|Quebra linha|`<br>`|
+|HTML|Destacar|`<mark>`|
+|HTML|Tecla|`<kbd>Ctrl</kbd>`|
+|Escape|Asterisco literal|`\*texto\*`|
+|Escape|Tag literal|`\#tag`|
+|Escape|Wikilink literal|`\[\[Nota\]\]`|
+|Query|Buscar tag|` ```query tag:#projeto ``` `|
+|Query|Buscar pasta|` ```query path:"Projetos" ``` `|
+|Query|Buscar texto|` ```query férias ``` `|
 
 ---
 
-# 11. CALLOUTS
-
-## Nota
-
-```md
-> [!note]
-> Informação importante.
-```
-
-Resultado:
-
-Caixa visual destacada.
-
----
-
-## Dica
-
-```md
-> [!tip]
-> Use templates.
-```
-
----
-
-## Aviso
-
-```md
-> [!warning]
-> Prazo vence amanhã.
-```
-
----
-
-## Erro
-
-```md
-> [!danger]
-> Não excluir esta planilha.
-```
-
----
-
-## Recolhível
-
-```md
-> [!info]+ Detalhes
-> Texto oculto.
-```
-
-Abre expandido.
-
----
-
-```md
-> [!info]- Detalhes
-> Texto oculto.
-```
-
-Abre fechado.
-
----
-
-# 12. CITAÇÕES
-
-```md
-> Texto citado
-```
-
-Resultado:
-
-> Texto citado
-
----
-
-# 13. COMENTÁRIOS
-
-## Não aparecem na visualização
-
-```md
-%% Informação interna %%
-```
-
----
-
-## Multilinha
-
-```md
-%%
-Anotação
-privada
-%%
-```
-
----
-
-# 14. FRONTMATTER
-
-Fica no topo da nota.
+# Frontmatter (Metadados)
 
 ```yaml
 ---
@@ -452,310 +114,84 @@ tags:
   - ferias
 
 created: 2026-06-08
+
+updated: 2026-06-08
 ---
-```
-
-## Para que serve?
-
-- Metadados
-- Busca
-- Dataview
-- Organização
-
----
-
-# 15. NOTAS DE RODAPÉ
-
-## Sintaxe
-
-```md
-Texto importante[^1]
-
-[^1]: Explicação detalhada.
-```
-
-Resultado:
-
-Texto importante¹
-
----
-
-# 16. IMAGENS
-
-## Inserir
-
-```md
-![[imagem.png]]
 ```
 
 ---
 
-## Redimensionar
+# Tipos de Callout
 
-```md
-![[imagem.png|300]]
-```
-
-300 px de largura.
-
----
-
-## Definir largura e altura
-
-```md
-![[imagem.png|300x200]]
-```
-
----
-
-# 17. PDF
-
-## Incorporar
-
-```md
-[[manual.pdf]]
+```text
+note
+abstract
+info
+todo
+tip
+success
+question
+warning
+failure
+danger
+bug
+example
+quote
 ```
 
 ---
 
-## Página específica
-
-```md
-![[manual.pdf#page=3]]
-```
-
----
-
-# 18. ÁUDIO
-
-```md
-![[audio.mp3]]
-```
-
-Cria player de áudio.
-
----
-
-# 19. VÍDEO
-
-```md
-![[video.mp4]]
-```
-
-Cria player de vídeo.
-
----
-
-# 20. CÓDIGO
-
-## Inline
-
-```md
-`const x = 10`
-```
-
-Resultado:
-
-`const x = 10`
-
----
-
-## Bloco
-
-````md
-```javascript
-function teste() {
- return true;
-}
-```
-````
-
-Resultado:
-
-```javascript
-function teste() {
- return true;
-}
-```
-
----
-
-# 21. LATEX (MATEMÁTICA)
-
-## Fórmula inline
-
-```md
-$E=mc^2$
-```
-
-Resultado:
-
-E = mc²
-
----
-
-## Fórmula em bloco
-
-```md
-$
-E=mc^2
-$
-```
-
----
-
-## Fração
-
-```md
-$
-\frac{a}{b}
-$
-```
-
----
-
-## Matriz
-
-```md
-$
-\begin{bmatrix}
-1 & 2\\
-3 & 4
-\end{bmatrix}
-$
-```
-
----
-
-# 22. MERMAID (DIAGRAMAS)
+# Mermaid — Exemplos Mínimos
 
 ## Fluxograma
 
-````md
 ```mermaid
 flowchart TD
-Inicio --> Processo
-Processo --> Fim
+A --> B
 ```
-````
-
-Resultado:
-
-Início → Processo → Fim
-
----
 
 ## Sequência
 
-````md
 ```mermaid
 sequenceDiagram
 João->>Maria: Aprova?
 Maria->>João: Sim
 ```
-````
 
----
+## Gantt
 
-# 23. HTML
-
-## Área recolhível
-
-```html
-<details>
-<summary>Clique aqui</summary>
-
-Conteúdo oculto
-
-</details>
+```mermaid
+gantt
+title Projeto
 ```
 
 ---
 
-## Teclas
+# LaTeX — Exemplos Úteis
 
-```html
-<kbd>Ctrl</kbd> + <kbd>P</kbd>
+Fração:
+
+```latex
+\frac{a}{b}
 ```
 
-Resultado:
+Somatório:
 
-Ctrl + P
-
----
-
-# 24. ESCAPAR CARACTERES
-
-Mostrar Markdown sem executar:
-
-```md
-\# Título
-
-\*Texto\*
-
-\[Nota\]
+```latex
+\sum_{i=1}^{n}
 ```
 
-Resultado:
+Integral:
 
-# Título
-
-_Texto_
-
-[[Nota]]
-
----
-
-# 25. DASHBOARD EXEMPLO
-
-```md
-# Dashboard
-
-## Projetos
-
-- [[Projeto RH\|Projeto RH]]
-- [[Projeto DAP\|Projeto DAP]]
-
-## Tarefas
-
-- [ ] Revisar relatório
-- [ ] Atualizar planilha
-
-## Última reunião
-
-![[Reunião#Resumo\|Reunião#Resumo]]
+```latex
+\int_a^b
 ```
 
-Resultado:
+Matriz:
 
-Uma página central que reúne várias notas.
-
----
-
-# 26. FLUXO IDEAL DE ORGANIZAÇÃO
-
-```text
-Projetos/
-├── Projeto RH
-├── Projeto DAP
-
-Áreas/
-├── RH
-├── DAP
-
-Pessoas/
-├── João
-├── Maria
-
-Reuniões/
-├── Reunião 2026-06-08
-```
-
-Tags:
-
-```md
-#projeto
-#area
-#pessoa
-#reuniao
+```latex
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
 ```
