@@ -2,180 +2,336 @@
 {"dg-publish":true,"permalink":"/sintaxe-do-obsidian-guia-pratico/","dg-note-properties":{}}
 ---
 
-
-|Categoria|Recurso|Sintaxe|
-|---|---|---|
-|Texto|Negrito|`**texto**`|
-|Texto|Itálico|`*texto*`|
-|Texto|Negrito + Itálico|`***texto***`|
-|Texto|Riscado|`~~texto~~`|
-|Texto|Destacado|`==texto==`|
-|Texto|Código inline|`` `texto` ``|
-|Texto|Subscrito|`H~2~O`|
-|Texto|Sobrescrito|`X^2^`|
-|Estrutura|Título 1|`# Título`|
-|Estrutura|Título 2|`## Título`|
-|Estrutura|Título 3|`### Título`|
-|Estrutura|Título 4|`#### Título`|
-|Estrutura|Título 5|`##### Título`|
-|Estrutura|Título 6|`###### Título`|
-|Estrutura|Linha horizontal|`---`|
-|Estrutura|Quebra de linha|`Linha 1\`|
-|Lista|Item|`- Item`|
-|Lista|Subitem|`- Subitem`|
-|Lista|Numerada|`1. Item`|
-|Lista|Tarefa pendente|`- [ ] Fazer`|
-|Lista|Tarefa concluída|`- [x] Feito`|
-|Link|Externo|`[Google](https://google.com)`|
-|Link|URL direta|`https://obsidian.md`|
-|Link|E-mail|`<email@dominio.com>`|
-|Obsidian|Nota|`[[Projeto]]`|
-|Obsidian|Alias|`[[Projeto\|Meu Projeto]]`|
-|Obsidian|Cabeçalho|`[[Projeto#Cronograma]]`|
-|Obsidian|Cabeçalho + Alias|`[[Projeto#Cronograma\|Cronograma]]`|
-|Obsidian|Bloco|`[[Projeto#^prazo]]`|
-|Obsidian|Nota incorporada|`![[Projeto]]`|
-|Obsidian|Seção incorporada|`![[Projeto#Cronograma]]`|
-|Obsidian|Bloco incorporado|`![[Projeto#^prazo]]`|
-|Obsidian|Criar bloco|`Texto importante` + `^bloco`|
-|Tags|Simples|`#projeto`|
-|Tags|Hierárquica|`#projeto/dap`|
-|Tags|Multinível|`#projeto/dap/ferias`|
-|Citação|Simples|`> Texto`|
-|Citação|Nível 2|`>> Texto`|
-|Citação|Nível 3|`>>> Texto`|
-|Callout|Nota|`> [!note]`|
-|Callout|Abstract|`> [!abstract]`|
-|Callout|Info|`> [!info]`|
-|Callout|Todo|`> [!todo]`|
-|Callout|Tip|`> [!tip]`|
-|Callout|Success|`> [!success]`|
-|Callout|Question|`> [!question]`|
-|Callout|Warning|`> [!warning]`|
-|Callout|Failure|`> [!failure]`|
-|Callout|Danger|`> [!danger]`|
-|Callout|Bug|`> [!bug]`|
-|Callout|Example|`> [!example]`|
-|Callout|Quote|`> [!quote]`|
-|Callout|Expansível aberto|`> [!info]+ Título`|
-|Callout|Expansível fechado|`> [!info]- Título`|
-|Tabela|Estrutura básica|`\| Nome \| Cargo \|`|
-|Tabela|Separador|`\|------\|------\|`|
-|Tabela|Alinhar esquerda|`:---`|
-|Tabela|Alinhar centro|`:---:`|
-|Tabela|Alinhar direita|`---:`|
-|Rodapé|Referência|`Texto[^1]`|
-|Rodapé|Definição|`[^1]: Observação`|
-|Comentário|Linha única|`%% comentário %%`|
-|Comentário|Multilinha|`%% ... %%`|
-|Imagem|Inserir|`![[imagem.png]]`|
-|Imagem|Redimensionar|`![[imagem.png\|300]]`|
-|Imagem|Largura x Altura|`![[imagem.png\|300x200]]`|
-|PDF|Inserir|`[[arquivo.pdf]]`|
-|PDF|Página específica|`![[arquivo.pdf#page=5]]`|
-|Áudio|Inserir|`![[audio.mp3]]`|
-|Vídeo|Inserir|`![[video.mp4]]`|
-|Código|Bloco genérico|` ``` ``` `|
-|Código|JavaScript|` ```javascript ``` `|
-|Código|SQL|` ```sql ``` `|
-|Código|JSON|` ```json ``` `|
-|Código|YAML|` ```yaml ``` `|
-|Código|Python|` ```python ``` `|
-|Matemática|Fórmula inline|`$E=mc^2$`|
-|Matemática|Fórmula bloco|`$$ fórmula $$`|
-|Matemática|Fração|`\frac{a}{b}`|
-|Matemática|Somatório|`\sum_{i=1}^{n}`|
-|Matemática|Integral|`\int_a^b`|
-|Matemática|Raiz|`\sqrt{x}`|
-|Matemática|Potência|`x^2`|
-|Matemática|Matriz|`\begin{bmatrix}...\end{bmatrix}`|
-|Mermaid|Fluxograma|`flowchart TD`|
-|Mermaid|Sequência|`sequenceDiagram`|
-|Mermaid|Classe|`classDiagram`|
-|Mermaid|Gantt|`gantt`|
-|Mermaid|ERD|`erDiagram`|
-|Mermaid|Timeline|`timeline`|
-|Mermaid|Jornada|`journey`|
-|Mermaid|Estado|`stateDiagram-v2`|
-|Mermaid|Pizza|`pie`|
-|HTML|Recolhível|`<details>`|
-|HTML|Título recolhível|`<summary>`|
-|HTML|Quebra linha|`<br>`|
-|HTML|Destacar|`<mark>`|
-|HTML|Tecla|`<kbd>Ctrl</kbd>`|
-|HTML|Div|`<div>`|
-|HTML|Span|`<span>`|
-|Escape|Asterisco literal|`\*texto\*`|
-|Escape|Tag literal|`\#tag`|
-|Escape|Wikilink literal|`\[\[Nota\]\]`|
-|Escape|Pipe literal|`\|`|
-|Query|Buscar tag|`tag:#projeto`|
-|Query|Buscar pasta|`path:"Projetos"`|
-|Query|Buscar texto|`ferias`|
-|Frontmatter|Início/Fim|`---`|
-|Frontmatter|Título|`title: Minha Nota`|
-|Frontmatter|Alias|`aliases:`|
-|Frontmatter|Tags|`tags:`|
-|Frontmatter|Data|`created: 2026-06-08`|
-|Frontmatter|Classe CSS|`cssclasses:`|
+> Referência compacta para uso diário. Sintaxes simples ficam em tabela. Sintaxes complexas possuem exemplos próprios.
 
 ---
 
-## Tipos de Callout
+## Formatação Básica
 
-|Tipo|
-|---|
-|`note`|
-|`abstract`|
-|`info`|
-|`todo`|
-|`tip`|
-|`success`|
-|`question`|
-|`warning`|
-|`failure`|
-|`danger`|
-|`bug`|
-|`example`|
-|`quote`|
+| Recurso           | Sintaxe      |
+| ----------------- | ------------ |
+| Título 1          | # Título     |
+| Título 2          | ## Título    |
+| Título 3          | ### Título   |
+| Negrito           | **texto**    |
+| Itálico           | _texto_      |
+| Negrito + Itálico | _**texto**_  |
+| Riscado           | ~~texto~~    |
+| Destaque          | ==texto==    |
+| Código inline     | `texto`      |
+| Subscrito         | H~2~O        |
+| Sobrescrito       | X^2^         |
+| Linha horizontal  | ---          |
+| Quebra de linha   | texto</code> |
 
 ---
 
-## Tipos de Mermaid
+## Listas e Tarefas
+
+| Recurso        | Sintaxe     |
+| -------------- | ----------- |
+| Item           | - Item      |
+| Subitem        | - Subitem   |
+| Lista numerada | 1. Item     |
+| Tarefa         | - [ ] Fazer |
+| Concluída      | - [x] Feito |
+
+---
+
+## Links
+
+|Recurso|Sintaxe|
+|---|---|
+|Link externo|[Texto](https://site.com/)|
+|URL direta|[https://site.com](https://site.com/)|
+|E-mail|<[email@dominio.com](mailto:email@dominio.com)>|
+
+---
+
+## Wikilinks (Obsidian)
+
+| Recurso           | Sintaxe                            |
+| ----------------- | ---------------------------------- |
+| Nota              | [[Projeto\|Projeto]]                        |
+| Alias             | [[Projeto\|Meu Projeto]]           |
+| Cabeçalho         | [[Projeto#Cronograma\|Projeto#Cronograma]]             |
+| Cabeçalho + Alias | [[Projeto#Cronograma\|Cronograma]] |
+| Bloco             | [[Projeto#^prazo\|Projeto#^prazo]]                 |
+
+### Exemplo
+
+```md
+[[Projeto RH]]
+
+[[Projeto RH|Projeto Recursos Humanos]]
+
+[[Projeto RH#Cronograma]]
+
+[[Projeto RH#^prazo]]
+```
+
+---
+
+## Embeds (Incorporação)
+
+|Recurso|Sintaxe|
+|---|---|
+|Nota|![[Projeto\|Projeto]]|
+|Seção|![[Projeto#Cronograma\|Projeto#Cronograma]]|
+|Bloco|![[Projeto#^prazo\|Projeto#^prazo]]|
+
+### Exemplo
+
+```md
+![[Projeto RH]]
+
+![[Projeto RH#Cronograma]]
+
+![[Projeto RH#^prazo]]
+```
+
+---
+
+## Referências de Bloco
+
+Criar bloco:
+
+```md
+Prazo final: 30/06/2026
+^prazo
+```
+
+Usar:
+
+```md
+[[Projeto#^prazo\|Projeto#^prazo]]
+
+![[Projeto#^prazo\|Projeto#^prazo]]
+```
+
+---
+
+## Tags
+
+|Recurso|Sintaxe|
+|---|---|
+|Simples|#projeto|
+|Hierárquica|#projeto/dap|
+|Multinível|#projeto/dap/ferias|
+
+---
+
+## Callouts
 
 |Tipo|Sintaxe|
 |---|---|
-|Fluxograma|`flowchart TD`|
-|Sequência|`sequenceDiagram`|
-|Classe|`classDiagram`|
-|ERD|`erDiagram`|
-|Estado|`stateDiagram-v2`|
-|Jornada|`journey`|
-|Timeline|`timeline`|
-|Pizza|`pie`|
-|Gantt|`gantt`|
+|Nota|> [!note]|
+|Info|> [!info]|
+|Dica|> [!tip]|
+|Sucesso|> [!success]|
+|Aviso|> [!warning]|
+|Perigo|> [!danger]|
+|Pergunta|> [!question]|
+|Bug|> [!bug]|
+|Citação|> [!quote]|
+
+### Expansível
+
+Aberto:
+
+```md
+> [!info]+ Detalhes
+> Conteúdo
+```
+
+Fechado:
+
+```md
+> [!info]- Detalhes
+> Conteúdo
+```
 
 ---
 
-## Frontmatter Completo
+## Tabelas
+
+Tabela simples:
+
+```md
+| Nome | Setor |
+|------|------|
+| João | DAP |
+| Maria | RH |
+```
+
+Alinhamento:
+
+|Tipo|Sintaxe|
+|---|---|
+|Esquerda|:---|
+|Centro|:---:|
+|Direita|---:|
+
+---
+
+## Comentários
+
+|Recurso|Sintaxe|
+|---|---|
+|Linha única||
+|Multilinha||
+
+---
+
+## Notas de Rodapé
+
+|Recurso|Sintaxe|
+|---|---|
+|Referência|Texto[^1]|
+|Definição|[^1]: Observação|
+
+---
+
+## Imagens e Arquivos
+
+|Recurso|Sintaxe|
+|---|---|
+|Imagem|![[imagem.png\|imagem.png]]|
+|Redimensionar|![[imagem.png\|300]]|
+|Largura x Altura|![[imagem.png\|300x200]]|
+|PDF|[[arquivo.pdf\|arquivo.pdf]]|
+|Página PDF|![[arquivo.pdf#page=5\|arquivo.pdf#page=5]]|
+|Áudio|![[audio.mp3\|audio.mp3]]|
+|Vídeo|![[video.mp4\|video.mp4]]|
+
+---
+
+## Código
+
+|Recurso|Sintaxe|
+|---|---|
+|Bloco genérico|```|
+|JavaScript|```javascript|
+|Python|```python|
+|SQL|```sql|
+|JSON|```json|
+|YAML|```yaml|
+
+Exemplo:
+
+````md
+```javascript
+const nome = "João";
+```
+````
+
+---
+
+## Frontmatter
 
 ```yaml
 ---
-title: Minha Nota
+title: Projeto Férias
 
 aliases:
-  - Alias 1
-  - Alias 2
+  - Ferias
 
 tags:
   - projeto
-  - obsidian
+  - ferias
 
 created: 2026-06-08
 
 updated: 2026-06-08
-
-cssclasses:
-  - dashboard
 ---
 ```
+
+---
+
+## LaTeX
+
+|Recurso|Sintaxe|
+|---|---|
+|Fórmula inline|$E=mc^2$|
+|Fórmula bloco|$$ fórmula $$|
+|Fração|\frac{a}{b}|
+|Somatório|\sum_{i=1}^{n}|
+|Integral|\int_a^b|
+|Raiz|\sqrt{x}|
+|Matriz|\begin{bmatrix}...\end{bmatrix}|
+
+Exemplo:
+
+```latex
+$
+\frac{a}{b}
+$
+```
+
+---
+
+## Mermaid
+
+|Tipo|Sintaxe|
+|---|---|
+|Fluxograma|flowchart TD|
+|Sequência|sequenceDiagram|
+|Classe|classDiagram|
+|ERD|erDiagram|
+|Estado|stateDiagram-v2|
+|Jornada|journey|
+|Timeline|timeline|
+|Pizza|pie|
+|Gantt|gantt|
+
+Fluxograma:
+
+````md
+```mermaid
+flowchart TD
+A --> B
+```
+````
+
+Sequência:
+
+````md
+```mermaid
+sequenceDiagram
+João->>Maria: Aprova?
+Maria->>João: Sim
+```
+````
+
+---
+
+## HTML Útil
+
+|Recurso|Sintaxe|
+|---|---|
+|Recolhível|<details>|
+|Título recolhível|<summary>|
+|Quebra de linha|<br>|
+|Destaque|<mark>|
+|Tecla|<kbd>Ctrl</kbd>|
+
+---
+
+## Escapar Caracteres
+
+|Recurso|Sintaxe|
+|---|---|
+|Asterisco|*texto*|
+|Tag|#tag|
+|Wikilink|[[Nota\|Nota]]|
+|Pipe|\||
+
+---
+
+## Query Blocks
+
+|Recurso|Sintaxe|
+|---|---|
+|Buscar tag|tag:#projeto|
+|Buscar pasta|path:"Projetos"|
+|Buscar texto|ferias|
