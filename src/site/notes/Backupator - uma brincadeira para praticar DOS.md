@@ -8,7 +8,7 @@ Fiz todo o desenvolvimento em DOS, para praticar os códigos de script. Infelizm
 
 Atualmente o script está funcional. Também, realizei o agenda de tarefa, nativo do windows, para que, sempre que meu hd externo é conectado o script roda e faz o backup automaticamente, isso é bem interessante.
 
-Ainda não subi o projeto para o github, quem sabe eu faça isso futuramente. Por enquanto, segue o código pra quem se interessar.
+Ainda não subi o projeto para o github, quem sabe eu faça isso futuramente. Por enquanto, segue o código pra quem se interessar:
 
 [Backupator.bat](https://drive.google.com/file/d/1ec1abEE-LtK8Ru2wXOPPlfJbWUFzqKdu/view?usp=drive_link)
 [fazerbackup.bat](https://drive.google.com/file/d/1LHJhddvU-Nf_34oxZgAvHtCbLvG_7eNL/view?usp=drive_link)
@@ -17,3 +17,6 @@ Ainda não subi o projeto para o github, quem sabe eu faça isso futuramente. Po
 [log.txt](https://drive.google.com/file/d/1h7f9-UHrgfQywbuAE2XAN3Vm9lY9xJO4/view?usp=drive_link)
 [programados.txt](https://drive.google.com/file/d/1EyMRB84QYTYFNzOdp0eLcFnBDdSFNeDq/view?usp=drive_link)
 [tarefa.xml](https://drive.google.com/file/d/1AyywtPgLi8RjeAfc8Pf91vNhARMca5OR/view?usp=drive_link)
+
+Captura de tela do script em funcionamento:
+![Pasted image 20260607211703.png](/img/user/Pasted%20image%2020260607211703.png)
