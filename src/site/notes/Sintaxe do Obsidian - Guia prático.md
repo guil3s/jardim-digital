@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/sintaxe-do-obsidian-guia-pratico/","dg-note-properties":{}}
 ---
 
-> Este guia mostra **a sintaxe**, **o resultado** e **quando usar** cada recurso.
+> Este guia mostra **a sintaxe**, **o resultado** e **quando usar** cada recurso..
 
 ---
 
