@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de Sintaxe do Obsidian</title>
+<style>
+:root {
+  --background-primary:#1e1e1e; --background-secondary:#252525; --background-secondary-alt:#2d2d2d; --background-modifier-border:#3a3a3a; --background-modifier-border-hover:#555; --text-normal:#dadada; --text-muted:#a6a6a6; --text-accent:#8ab4ff; --interactive-accent:#8ab4ff; --text-on-accent:#111827; --code-background:#111827; --code-normal:#e5e7eb; --table-header-background:#2a2a2a;
+}
+html{scroll-behavior:smooth} body{margin:0;background:var(--background-primary);color:var(--text-normal);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;line-height:1.65} main.content{max-width:980px;margin:0 auto;padding:32px 22px 64px} header{margin-bottom:28px} h1,h2,h3{line-height:1.25;color:var(--text-normal)} h1{font-size:2rem;margin:0 0 10px} h2{font-size:1.55rem;margin-top:44px;padding-bottom:8px;border-bottom:1px solid var(--background-modifier-border)} h3{font-size:1.12rem;margin-top:26px;color:var(--text-normal)} p{color:var(--text-normal)} a{color:var(--text-accent)} blockquote{margin:16px 0 24px;padding:10px 16px;border-left:4px solid var(--interactive-accent);background:var(--background-secondary);color:var(--text-muted);border-radius:6px} hr{border:none;border-top:1px solid var(--background-modifier-border);margin:32px 0}.table-wrapper{overflow-x:auto;margin:14px 0 24px;border:1px solid var(--background-modifier-border);border-radius:8px} table{width:100%;border-collapse:collapse;min-width:560px} th,td{border-bottom:1px solid var(--background-modifier-border);padding:10px 12px;vertical-align:top} th{background:var(--table-header-background);font-weight:700;text-align:left} tr:last-child td{border-bottom:0} code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;background:var(--code-background);color:var(--code-normal);border:1px solid var(--background-modifier-border);border-radius:5px;padding:.15em .35em;white-space:pre-wrap;word-break:break-word} pre{background:var(--code-background);color:var(--code-normal);border:1px solid var(--background-modifier-border);border-radius:8px;padding:14px 16px;overflow-x:auto;white-space:pre;line-height:1.45} pre code{display:block;padding:0;border:0;background:transparent;white-space:pre;word-break:normal}.toc-box{background:var(--background-secondary);border:1px solid var(--background-modifier-border);border-radius:10px;padding:16px 18px;margin:22px 0 34px}.toc-box h2{border-bottom:0;margin:0 0 8px;padding:0;font-size:1.25rem}.toc-box ol{columns:2;gap:36px;margin:10px 0 0;padding-left:22px}.toc-box li{break-inside:avoid;margin-bottom:6px}.note{color:var(--text-muted);font-size:.95rem}@media(max-width:760px){main.content{padding:24px 14px 48px}h1{font-size:1.65rem}h2{font-size:1.3rem}.toc-box ol{columns:1}table{min-width:520px}}
+</style>
+<style>button:disabled {
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+.digital-garden-publish-status-view ul {
+	list-style-type: none;
+	position: relative;
+	margin-left: 5px;
+	margin-top: 0;
+	max-height: 250px;
+	overflow: auto;
+}
+
+.digital-garden-publish-status-view h2 {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.digital-garden-publish-status-view .collapsable {
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.dg-settings > h1,
+h2,
+h3,
+h4 {
+	margin-top: 40px;
+}
+
+.dg-settings .svg-icon {
+	margin-right: 10px;
+}
+
+@keyframes dg-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.dg-rotate {
+	animation: dg-rotate 4s linear infinite;
+}
+
+/* GitHub settings layout */
+#github-settings {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+#github-settings h3 {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	row-gap: 4px;
+}
+
+#github-settings h3 .connection-status {
+	flex-basis: 100%;
+	margin-left: -9px;
+}
+
+/* Connection status styles */
+.connection-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.85em;
+	padding: 2px 8px;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+.connection-status-icon {
+	width: 14px;
+	height: 14px;
+}
+
+.connection-status-text {
+	white-space: nowrap;
+}
+
+.connection-status-loading {
+	color: var(--text-muted);
+}
+
+.connection-status-loading .connection-status-icon {
+	animation: dg-rotate 2s linear infinite;
+}
+
+.connection-status-connected {
+	color: var(--color-green);
+}
+
+.connection-status-error {
+	color: var(--color-red);
+}
+
+/* Apply settings container */
+.dg-apply-settings-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 16px;
+	margin-bottom: 16px;
+	border-radius: 8px;
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+}
+
+.dg-apply-settings-container.has-changes {
+	border-color: var(--color-yellow);
+	background: var(--background-secondary-alt);
+}
+
+.dg-apply-settings-button {
+	padding: 8px 24px;
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.dg-apply-settings-button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.dg-apply-settings-status {
+	color: var(--text-warning);
+	font-size: 0.9em;
+	min-height: 1.2em;
+}
+
+/* Apply button container for appearance settings */
+.dg-apply-button-container {
+	margin-top: 16px;
+	margin-bottom: 16px;
+	padding: 12px;
+	background: var(--background-secondary);
+	border-radius: 8px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.dg-apply-button-container .setting-item-control {
+	width: 100%;
+}
+
+.dg-apply-button-container .setting-item-info {
+	display: none;
+}
+
+.dg-apply-button-container button {
+	width: 100%;
+	margin-top: 8px;
+}
+
+/* Appearance status message */
+.dg-appearance-status {
+	margin-bottom: 10px;
+	color: var(--text-muted);
+}
+
+.dg-appearance-status.is-error {
+	color: var(--text-error);
+}
+
+/* Documentation link */
+.dg-docs-link {
+	margin-bottom: 10px;
+}
+
+/* Settings sections */
+.dg-settings-section {
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	padding: 16px;
+	margin-bottom: 16px;
+}
+
+.dg-settings-section h3 {
+	margin-top: 0 !important;
+	margin-bottom: 12px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.dg-settings-section .dg-apply-button-container {
+	margin-bottom: 0;
+	background: transparent;
+	border: none;
+	padding: 12px 0 0 0;
+}
+
+/* Theme picker */
+.dg-current-theme {
+	margin-bottom: 12px;
+	padding: 8px;
+	background: var(--background-secondary);
+	border-radius: 6px;
+}
+
+.dg-current-theme span {
+	color: var(--text-muted);
+}
+
+.dg-theme-search {
+	width: 100%;
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+	background: var(--background-primary);
+}
+
+.dg-theme-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 12px;
+	max-height: 300px;
+	overflow-y: auto;
+	padding: 4px;
+}
+
+.dg-theme-card {
+	cursor: pointer;
+	border-radius: 6px;
+	overflow: hidden;
+	border: 2px solid var(--background-modifier-border);
+	transition: border-color 0.15s ease;
+	background: var(--background-secondary);
+}
+
+.dg-theme-card.is-selected {
+	border-color: var(--interactive-accent);
+}
+
+.dg-theme-card:hover:not(.is-selected) {
+	border-color: var(--background-modifier-border-hover);
+}
+
+.dg-theme-card-image {
+	width: 100%;
+	height: 80px;
+	overflow: hidden;
+	background: var(--background-primary);
+}
+
+.dg-theme-card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.dg-theme-card-placeholder {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	font-size: 11px;
+}
+
+.dg-theme-card-name {
+	padding: 6px 8px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Update Modal Styles */
+.dg-update-modal .modal-content {
+	padding: 0;
+}
+
+.dg-modal-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.dg-modal-title .svg-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.dg-update-section {
+	padding: 16px;
+	background: var(--background-secondary);
+	border-radius: 8px;
+	margin-bottom: 16px;
+}
+
+.dg-update-info {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 12px;
+	background: var(--background-primary);
+	border-radius: 6px;
+	margin-bottom: 16px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.dg-update-info .svg-icon {
+	width: 18px;
+	height: 18px;
+	flex-shrink: 0;
+	color: var(--text-muted);
+}
+
+.dg-update-info-text {
+	font-size: 0.9em;
+	color: var(--text-muted);
+	line-height: 1.5;
+}
+
+.dg-update-button-container {
+	display: flex;
+	justify-content: center;
+}
+
+.dg-update-button-container button {
+	padding: 10px 24px;
+	font-size: 1em;
+}
+
+/* Update Progress States */
+.dg-update-progress {
+	margin-top: 16px;
+}
+
+.dg-update-loading,
+.dg-update-success,
+.dg-update-error {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 24px;
+	background: var(--background-secondary);
+	border-radius: 8px;
+}
+
+.dg-update-spinner {
+	margin-bottom: 16px;
+}
+
+.dg-update-spinner .svg-icon {
+	width: 32px;
+	height: 32px;
+	color: var(--interactive-accent);
+	animation: dg-rotate 1.5s linear infinite;
+}
+
+.dg-update-loading-text {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin: 0 0 4px 0;
+}
+
+.dg-update-loading-subtext {
+	color: var(--text-muted);
+	font-size: 0.9em;
+	margin: 0;
+}
+
+.dg-update-icon {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 16px;
+}
+
+.dg-update-icon .svg-icon {
+	width: 28px;
+	height: 28px;
+}
+
+.dg-update-icon-success {
+	background: rgba(var(--color-green-rgb), 0.15);
+}
+
+.dg-update-icon-success .svg-icon {
+	color: var(--color-green);
+}
+
+.dg-update-icon-error {
+	background: rgba(var(--color-red-rgb), 0.15);
+}
+
+.dg-update-icon-error .svg-icon {
+	color: var(--color-red);
+}
+
+.dg-update-title {
+	margin: 0 0 8px 0;
+	font-size: 1.2em;
+}
+
+.dg-update-message {
+	color: var(--text-muted);
+	margin: 0 0 16px 0;
+}
+
+.dg-update-link-container {
+	margin-top: 8px;
+}
+
+.dg-update-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 16px;
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: 500;
+	transition: opacity 0.15s ease;
+}
+
+.dg-update-link:hover {
+	opacity: 0.9;
+	text-decoration: none;
+	color: var(--text-on-accent);
+}
+
+.dg-update-link .svg-icon {
+	width: 14px;
+	height: 14px;
+}
+
+/* PR History Styles */
+.dg-pr-history {
+	margin-top: 16px;
+	border-top: 1px solid var(--background-modifier-border);
+	padding-top: 16px;
+}
+
+.dg-pr-history-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 6px;
+	color: var(--text-muted);
+	font-size: 0.9em;
+	transition: background 0.15s ease;
+}
+
+.dg-pr-history-header:hover {
+	background: var(--background-secondary);
+}
+
+.dg-pr-history-header .svg-icon {
+	width: 16px;
+	height: 16px;
+	transition: transform 0.2s ease;
+}
+
+.dg-pr-history-header .svg-icon.is-expanded {
+	transform: rotate(90deg);
+}
+
+.dg-pr-history-list {
+	padding: 8px 0 0 24px;
+}
+
+.dg-pr-history-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+	border-radius: 4px;
+	margin-bottom: 4px;
+}
+
+.dg-pr-history-item:hover {
+	background: var(--background-secondary);
+}
+
+.dg-pr-history-item .svg-icon {
+	width: 16px;
+	height: 16px;
+	color: var(--text-muted);
+}
+
+.dg-pr-history-link {
+	color: var(--text-normal);
+	text-decoration: none;
+}
+
+.dg-pr-history-link:hover {
+	color: var(--interactive-accent);
+	text-decoration: underline;
+}
+</style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<main class="content cm-s-obsidian print">
+<header>
+<h1>Manual de Sintaxe do Obsidian</h1>
+<blockquote>Referência rápida para Markdown, Obsidian, Wikilinks, Embeds, Callouts, LaTeX, Mermaid e recursos avançados.</blockquote>
+<p class="note">Página HTML estática: as sintaxes aparecem como texto literal e não são processadas pelo Obsidian/Digital Garden.</p>
+</header>
+<nav class="toc-box" aria-label="Sumário"><h2>Sumário</h2><ol><li><a href="#consulta-rapida">1. Consulta rápida</a></li>
+<li><a href="#paragrafos-quebras">2. Parágrafos e quebras de linha</a></li>
+<li><a href="#titulos">3. Títulos</a></li>
+<li><a href="#formatacao-texto">4. Formatação de texto</a></li>
+<li><a href="#listas">5. Listas</a></li>
+<li><a href="#links">6. Links</a></li>
+<li><a href="#wikilinks">7. Wikilinks do Obsidian</a></li>
+<li><a href="#links-internos-markdown">8. Links internos em formato Markdown</a></li>
+<li><a href="#embeds">9. Embeds: incorporar notas, seções e arquivos</a></li>
+<li><a href="#referencias-bloco">10. Referências de bloco</a></li>
+<li><a href="#tags">11. Tags</a></li>
+<li><a href="#citacoes">12. Citações</a></li>
+<li><a href="#callouts">13. Callouts</a></li>
+<li><a href="#tabelas">14. Tabelas</a></li>
+<li><a href="#imagens">15. Imagens</a></li>
+<li><a href="#midias">16. PDFs, áudio e vídeo</a></li>
+<li><a href="#codigo">17. Código</a></li>
+<li><a href="#blocos-em-blocos">18. Como mostrar blocos de código dentro de blocos de código</a></li>
+<li><a href="#latex">19. Matemática com LaTeX</a></li>
+<li><a href="#mermaid">20. Mermaid: diagramas</a></li>
+<li><a href="#frontmatter">21. Frontmatter</a></li>
+<li><a href="#html-util">22. HTML útil</a></li>
+<li><a href="#comentarios">23. Comentários ocultos</a></li>
+<li><a href="#notas-rodape">24. Notas de rodapé</a></li>
+<li><a href="#escapar">25. Escapar caracteres</a></li>
+<li><a href="#query-blocks">26. Query blocks</a></li>
+<li><a href="#atalhos">27. Atalhos úteis</a></li></ol></nav>
+<section id="consulta-rapida"><h2>1. Consulta rápida</h2><div class="table-wrapper"><table>
+<thead><tr><th>Categoria</th><th>Recurso</th><th>Sintaxe</th></tr></thead>
+<tbody>
+<tr><td>Texto</td><td>Negrito</td><td><code>**texto**</code></td></tr>
+<tr><td>Texto</td><td>Itálico</td><td><code>*texto*</code></td></tr>
+<tr><td>Texto</td><td>Negrito + itálico</td><td><code>***texto***</code></td></tr>
+<tr><td>Texto</td><td>Riscado</td><td><code>~~texto~~</code></td></tr>
+<tr><td>Texto</td><td>Destacado</td><td><code>==texto==</code></td></tr>
+<tr><td>Texto</td><td>Código inline</td><td><code>`texto`</code></td></tr>
+<tr><td>Texto</td><td>Subscrito</td><td><code>H~2~O</code></td></tr>
+<tr><td>Texto</td><td>Sobrescrito</td><td><code>X^2^</code></td></tr>
+<tr><td>Estrutura</td><td>Título 1</td><td><code># Título</code></td></tr>
+<tr><td>Estrutura</td><td>Título 2</td><td><code>## Título</code></td></tr>
+<tr><td>Estrutura</td><td>Título 3</td><td><code>### Título</code></td></tr>
+<tr><td>Estrutura</td><td>Título 4</td><td><code>#### Título</code></td></tr>
+<tr><td>Estrutura</td><td>Título 5</td><td><code>##### Título</code></td></tr>
+<tr><td>Estrutura</td><td>Título 6</td><td><code>###### Título</code></td></tr>
+<tr><td>Estrutura</td><td>Linha horizontal</td><td><code>---</code></td></tr>
+<tr><td>Lista</td><td>Item simples</td><td><code>- Item</code></td></tr>
+<tr><td>Lista</td><td>Item numerado</td><td><code>1. Item</code></td></tr>
+<tr><td>Lista</td><td>Tarefa pendente</td><td><code>- [ ] Fazer</code></td></tr>
+<tr><td>Lista</td><td>Tarefa concluída</td><td><code>- [x] Feito</code></td></tr>
+<tr><td>Link</td><td>Link externo</td><td><code>[Texto](https://site.com)</code></td></tr>
+<tr><td>Link</td><td>URL direta</td><td><code>https://site.com</code></td></tr>
+<tr><td>Link</td><td>E-mail</td><td><code>&lt;email@dominio.com&gt;</code></td></tr>
+<tr><td>Citação</td><td>Citação simples</td><td><code>&gt; Texto</code></td></tr>
+<tr><td>Comentário</td><td>Comentário oculto</td><td><code>%% comentário %%</code></td></tr>
+<tr><td>Rodapé</td><td>Referência</td><td><code>Texto[^1]</code></td></tr>
+<tr><td>Rodapé</td><td>Definição</td><td><code>[^1]: Observação</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="paragrafos-quebras"><h2>2. Parágrafos e quebras de linha</h2><div class="table-wrapper"><table>
+<thead><tr><th>Recurso</th><th>Como fazer</th></tr></thead>
+<tbody>
+<tr><td>Novo parágrafo</td><td>Deixe uma linha em branco entre os textos</td></tr>
+<tr><td>Quebra de linha simples</td><td>Use Shift + Enter</td></tr>
+<tr><td>Quebra de linha em Markdown</td><td>Adicione dois espaços no fim da linha ou use <code>&lt;br&gt;</code></td></tr>
+<tr><td>Espaço fixo</td><td>Use <code>&amp;nbsp;</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="titulos"><h2>3. Títulos</h2><p>Use <code>#</code> no início da linha. Quanto mais <code>#</code>, menor o nível do título.</p><pre class="language-text"><code># Título 1
+
+## Título 2
+
+### Título 3
+
+#### Título 4
+
+##### Título 5
+
+###### Título 6</code></pre></section><hr>
+<section id="formatacao-texto"><h2>4. Formatação de texto</h2><div class="table-wrapper"><table>
+<thead><tr><th>Resultado desejado</th><th>Sintaxe</th></tr></thead>
+<tbody>
+<tr><td>Negrito</td><td><code>**texto** ou __texto__</code></td></tr>
+<tr><td>Itálico</td><td><code>*texto* ou _texto_</code></td></tr>
+<tr><td>Negrito + itálico</td><td><code>***texto***</code></td></tr>
+<tr><td>Riscado</td><td><code>~~texto~~</code></td></tr>
+<tr><td>Destacado</td><td><code>==texto==</code></td></tr>
+<tr><td>Código inline</td><td><code>`texto`</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="listas"><h2>5. Listas</h2><h3>Lista simples</h3><pre class="language-text"><code>- Item
+- Item
+  - Subitem
+  - Subitem</code></pre><p>Também é possível usar <code>*</code> ou <code>+</code>:</p><pre class="language-text"><code>* Item
+
++ Item</code></pre><h3>Lista numerada</h3><pre class="language-text"><code>1. Primeiro item
+2. Segundo item
+3. Terceiro item</code></pre><p>Também funciona com parênteses:</p><pre class="language-text"><code>1) Primeiro item
+2) Segundo item
+3) Terceiro item</code></pre><h3>Lista de tarefas</h3><pre class="language-text"><code>- [ ] Tarefa pendente
+- [x] Tarefa concluída</code></pre><p>Também é possível usar outros caracteres dentro dos colchetes:</p><pre class="language-text"><code>- [?] Em dúvida
+- [-] Cancelada
+- [&gt;] Adiada</code></pre></section><hr>
+<section id="links"><h2>6. Links</h2><h3>Link externo</h3><pre class="language-text"><code>[Obsidian](https://obsidian.md)</code></pre><h3>URL direta</h3><pre class="language-text"><code>https://obsidian.md</code></pre><h3>E-mail</h3><pre class="language-text"><code>&lt;email@dominio.com&gt;</code></pre><h3>Link com espaço no endereço</h3><p>Use <code>%20</code> no lugar do espaço:</p><pre class="language-text"><code>[Minha Nota](Minha%20Nota.md)</code></pre><p>Ou coloque o endereço entre <code>&lt; &gt;</code>:</p><pre class="language-text"><code>[Minha Nota](&lt;Minha Nota.md&gt;)</code></pre></section><hr>
+<section id="wikilinks"><h2>7. Wikilinks do Obsidian</h2><p>Wikilinks são links internos entre notas do Obsidian.</p><div class="table-wrapper"><table>
+<thead><tr><th>Recurso</th><th>Sintaxe</th></tr></thead>
+<tbody>
+<tr><td>Link para nota</td><td><code>[[Projeto]]</code></td></tr>
+<tr><td>Link com alias</td><td><code>[[Projeto|Meu Projeto]]</code></td></tr>
+<tr><td>Link para seção</td><td><code>[[Projeto#Cronograma]]</code></td></tr>
+<tr><td>Link para seção com alias</td><td><code>[[Projeto#Cronograma|Cronograma]]</code></td></tr>
+<tr><td>Link para bloco</td><td><code>[[Projeto#^prazo]]</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="links-internos-markdown"><h2>8. Links internos em formato Markdown</h2><p>Além dos Wikilinks, o Obsidian também aceita links internos em Markdown.</p><pre class="language-text"><code>[Projeto](Projeto.md)
+
+[Projeto RH](Projeto%20RH.md)</code></pre></section><hr>
+<section id="embeds"><h2>9. Embeds: incorporar notas, seções e arquivos</h2><p>Embeds mostram o conteúdo de uma nota ou arquivo dentro da nota atual.</p><div class="table-wrapper"><table>
+<thead><tr><th>Recurso</th><th>Sintaxe</th></tr></thead>
+<tbody>
+<tr><td>Incorporar nota</td><td><code>![[Projeto]]</code></td></tr>
+<tr><td>Incorporar seção</td><td><code>![[Projeto#Cronograma]]</code></td></tr>
+<tr><td>Incorporar bloco</td><td><code>![[Projeto#^prazo]]</code></td></tr>
+<tr><td>Incorporar imagem</td><td><code>![[imagem.png]]</code></td></tr>
+<tr><td>Incorporar PDF</td><td><code>![[arquivo.pdf]]</code></td></tr>
+<tr><td>Incorporar áudio</td><td><code>![[audio.mp3]]</code></td></tr>
+<tr><td>Incorporar vídeo</td><td><code>![[video.mp4]]</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="referencias-bloco"><h2>10. Referências de bloco</h2><p>Referências de bloco permitem apontar para um trecho específico de uma nota.</p><h3>Criar um bloco</h3><pre class="language-text"><code>Prazo final: 30/06/2026
+^prazo</code></pre><h3>Linkar o bloco</h3><pre class="language-text"><code>[[Projeto#^prazo]]</code></pre><h3>Incorporar o bloco</h3><pre class="language-text"><code>![[Projeto#^prazo]]</code></pre><p>Uso comum: dashboards, resumos, acompanhamento de tarefas e reaproveitamento de trechos específicos.</p></section><hr>
+<section id="tags"><h2>11. Tags</h2><p>Tags ajudam a classificar notas.</p><div class="table-wrapper"><table>
+<thead><tr><th>Tipo</th><th>Exemplo</th></tr></thead>
+<tbody>
+<tr><td>Tag simples</td><td><code>#projeto</code></td></tr>
+<tr><td>Tag hierárquica</td><td><code>#projeto/dap</code></td></tr>
+<tr><td>Tag multinível</td><td><code>#projeto/dap/ferias</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="citacoes"><h2>12. Citações</h2><h3>Citação simples</h3><pre class="language-text"><code>&gt; Texto citado.</code></pre><h3>Citação com várias linhas</h3><pre class="language-text"><code>&gt; Esta é uma citação.
+&gt; Ela pode continuar em outra linha.</code></pre><h3>Citação aninhada</h3><pre class="language-text"><code>&gt; Nível 1
+&gt;&gt; Nível 2
+&gt;&gt;&gt; Nível 3</code></pre></section><hr>
+<section id="callouts"><h2>13. Callouts</h2><p>Callouts são caixas visuais de destaque no Obsidian.</p><h3>Estrutura básica</h3><pre class="language-text"><code>&gt; [!note]
+&gt; Conteúdo do callout.</code></pre><h3>Callout com título personalizado</h3><pre class="language-text"><code>&gt; [!tip] Dica importante
+&gt; Conteúdo do callout.</code></pre><h3>Callout recolhível aberto</h3><pre class="language-text"><code>&gt; [!info]+ Detalhes
+&gt; Conteúdo visível inicialmente.</code></pre><h3>Callout recolhível fechado</h3><pre class="language-text"><code>&gt; [!info]- Detalhes
+&gt; Conteúdo oculto inicialmente.</code></pre><h3>Tipos principais de callout</h3><div class="table-wrapper"><table>
+<thead><tr><th>Tipo</th><th>Sintaxe</th></tr></thead>
+<tbody>
+<tr><td>Nota</td><td><code>[!note]</code></td></tr>
+<tr><td>Resumo</td><td><code>[!abstract]</code></td></tr>
+<tr><td>Informação</td><td><code>[!info]</code></td></tr>
+<tr><td>Tarefa</td><td><code>[!todo]</code></td></tr>
+<tr><td>Dica</td><td><code>[!tip]</code></td></tr>
+<tr><td>Sucesso</td><td><code>[!success]</code></td></tr>
+<tr><td>Pergunta</td><td><code>[!question]</code></td></tr>
+<tr><td>Aviso</td><td><code>[!warning]</code></td></tr>
+<tr><td>Falha</td><td><code>[!failure]</code></td></tr>
+<tr><td>Perigo</td><td><code>[!danger]</code></td></tr>
+<tr><td>Bug</td><td><code>[!bug]</code></td></tr>
+<tr><td>Exemplo</td><td><code>[!example]</code></td></tr>
+<tr><td>Citação</td><td><code>[!quote]</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="tabelas"><h2>14. Tabelas</h2><h3>Tabela básica</h3><pre class="language-text"><code>| Nome | Setor | Status |
+|---|---|---|
+| João | DAP | Ativo |
+| Maria | RH | Férias |</code></pre><h3>Alinhamento</h3><pre class="language-text"><code>| Esquerda | Centro | Direita |
+|:---|:---:|---:|
+| A | B | C |</code></pre><div class="table-wrapper"><table>
+<thead><tr><th>Alinhamento</th><th>Sintaxe</th></tr></thead>
+<tbody>
+<tr><td>Esquerda</td><td><code>:---</code></td></tr>
+<tr><td>Centro</td><td><code>:---:</code></td></tr>
+<tr><td>Direita</td><td><code>---:</code></td></tr>
+</tbody></table></div><p>Observação: em tabelas Markdown, o caractere <code>|</code> separa colunas. Para exibir uma barra vertical literal dentro de uma célula, use <code>\|</code>.</p></section><hr>
+<section id="imagens"><h2>15. Imagens</h2><h3>Imagem externa em Markdown</h3><pre class="language-text"><code>![Descrição](https://site.com/imagem.png)</code></pre><h3>Imagem externa com tamanho</h3><pre class="language-text"><code>![Descrição|300](https://site.com/imagem.png)
+
+![Descrição|300x200](https://site.com/imagem.png)</code></pre><h3>Imagem do cofre do Obsidian</h3><pre class="language-text"><code>![[imagem.png]]</code></pre><h3>Imagem com largura</h3><pre class="language-text"><code>![[imagem.png|300]]</code></pre><h3>Imagem com largura e altura</h3><pre class="language-text"><code>![[imagem.png|300x200]]</code></pre></section><hr>
+<section id="midias"><h2>16. PDFs, áudio e vídeo</h2><h3>PDF</h3><pre class="language-text"><code>![[arquivo.pdf]]</code></pre><h3>Página específica do PDF</h3><pre class="language-text"><code>![[arquivo.pdf#page=5]]</code></pre><h3>Áudio</h3><pre class="language-text"><code>![[audio.mp3]]</code></pre><h3>Vídeo</h3><pre class="language-text"><code>![[video.mp4]]</code></pre></section><hr>
+<section id="codigo"><h2>17. Código</h2><h3>Código inline</h3><pre class="language-text"><code>Use `const x = 10` no texto.</code></pre><h3>Bloco de código</h3><pre class="language-text"><code>```javascript
+const x = 10;
+console.log(x);
+```</code></pre><h3>Bloco sem destaque de linguagem</h3><pre class="language-text"><code>```
+texto simples
+```</code></pre><h3>Linguagens comuns para destaque</h3><div class="table-wrapper"><table>
+<thead><tr><th>Linguagem</th><th>Identificador</th></tr></thead>
+<tbody>
+<tr><td>JavaScript</td><td>javascript ou js</td></tr>
+<tr><td>TypeScript</td><td>typescript ou ts</td></tr>
+<tr><td>Python</td><td>python</td></tr>
+<tr><td>SQL</td><td>sql</td></tr>
+<tr><td>JSON</td><td>json</td></tr>
+<tr><td>YAML</td><td>yaml</td></tr>
+<tr><td>Bash</td><td>bash</td></tr>
+<tr><td>PowerShell</td><td>powershell</td></tr>
+<tr><td>HTML</td><td>html</td></tr>
+<tr><td>CSS</td><td>css</td></tr>
+<tr><td>Markdown</td><td>md ou markdown</td></tr>
+</tbody></table></div></section><hr>
+<section id="blocos-em-blocos"><h2>18. Como mostrar blocos de código dentro de blocos de código</h2><p>Quando precisar documentar um bloco com três crases, use quatro crases no bloco externo.</p><pre class="language-text"><code>````md
+```javascript
+console.log(&quot;Olá&quot;);
+```
+````</code></pre><p>Também é possível usar tios:</p><pre class="language-text"><code>~~~
+texto
+~~~</code></pre></section><hr>
+<section id="latex"><h2>19. Matemática com LaTeX</h2><h3>Fórmula inline</h3><pre class="language-text"><code>$E=mc^2$</code></pre><h3>Fórmula em bloco</h3><pre class="language-text"><code>$$
+E=mc^2
+$$</code></pre><h3>Fração</h3><pre class="language-text"><code>$$
+\frac{a}{b}
+$$</code></pre><h3>Somatório</h3><pre class="language-text"><code>$$
+\sum_{i=1}^{n}
+$$</code></pre><h3>Integral</h3><pre class="language-text"><code>$$
+\int_a^b f(x)\,dx
+$$</code></pre><h3>Raiz</h3><pre class="language-text"><code>$$
+\sqrt{x}
+$$</code></pre><h3>Potência</h3><pre class="language-text"><code>$$
+x^2
+$$</code></pre><h3>Matriz</h3><pre class="language-text"><code>$$
+\begin{bmatrix}
+1 &amp; 2\\
+3 &amp; 4
+\end{bmatrix}
+$$</code></pre></section><hr>
+<section id="mermaid"><h2>20. Mermaid: diagramas</h2><p>Mermaid permite criar diagramas com texto.</p><h3>Fluxograma</h3><pre class="language-text"><code>```mermaid
+flowchart TD
+A[Início] --&gt; B[Processo]
+B --&gt; C[Fim]
+```</code></pre><h3>Diagrama de sequência</h3><pre class="language-text"><code>```mermaid
+sequenceDiagram
+João-&gt;&gt;Maria: Aprova?
+Maria-&gt;&gt;João: Sim
+```</code></pre><h3>Diagrama de classe</h3><pre class="language-text"><code>```mermaid
+classDiagram
+ClasseA &lt;|-- ClasseB
+ClasseA : +atributo
+ClasseA : +metodo()
+```</code></pre><h3>Diagrama ER</h3><pre class="language-text"><code>```mermaid
+erDiagram
+CLIENTE ||--o{ PEDIDO : faz
+PEDIDO ||--|{ ITEM : possui
+```</code></pre><h3>Gantt</h3><pre class="language-text"><code>```mermaid
+gantt
+title Cronograma
+dateFormat  YYYY-MM-DD
+section Projeto
+Planejamento :a1, 2026-06-01, 7d
+Execução     :a2, after a1, 14d
+```</code></pre><h3>Pizza</h3><pre class="language-text"><code>```mermaid
+pie
+title Distribuição
+&quot;Concluído&quot; : 60
+&quot;Pendente&quot; : 40
+```</code></pre><h3>Tipos comuns de Mermaid</h3><div class="table-wrapper"><table>
+<thead><tr><th>Tipo</th><th>Sintaxe inicial</th></tr></thead>
+<tbody>
+<tr><td>Fluxograma</td><td><code>flowchart TD</code></td></tr>
+<tr><td>Sequência</td><td><code>sequenceDiagram</code></td></tr>
+<tr><td>Classe</td><td><code>classDiagram</code></td></tr>
+<tr><td>ERD</td><td><code>erDiagram</code></td></tr>
+<tr><td>Estado</td><td><code>stateDiagram-v2</code></td></tr>
+<tr><td>Jornada</td><td><code>journey</code></td></tr>
+<tr><td>Timeline</td><td><code>timeline</code></td></tr>
+<tr><td>Pizza</td><td><code>pie</code></td></tr>
+<tr><td>Gantt</td><td><code>gantt</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="frontmatter"><h2>21. Frontmatter</h2><p>Frontmatter é um bloco YAML no início da nota, usado para metadados.</p><pre class="language-text"><code>---
+title: Projeto Férias
+aliases:
+  - Ferias
+  - Planejamento de férias
+tags:
+  - projeto
+  - ferias
+created: 2026-06-08
+updated: 2026-06-08
+cssclasses:
+  - dashboard
+---</code></pre><h3>Campos comuns</h3><div class="table-wrapper"><table>
+<thead><tr><th>Campo</th><th>Uso</th></tr></thead>
+<tbody>
+<tr><td>title</td><td>Título da nota</td></tr>
+<tr><td>aliases</td><td>Apelidos da nota</td></tr>
+<tr><td>tags</td><td>Tags da nota</td></tr>
+<tr><td>created</td><td>Data de criação</td></tr>
+<tr><td>updated</td><td>Data de atualização</td></tr>
+<tr><td>cssclasses</td><td>Classes CSS personalizadas</td></tr>
+<tr><td>date</td><td>Data relacionada à nota</td></tr>
+<tr><td>status</td><td>Status do item</td></tr>
+<tr><td>type</td><td>Tipo da nota</td></tr>
+</tbody></table></div></section><hr>
+<section id="html-util"><h2>22. HTML útil</h2><p>O Obsidian aceita alguns elementos HTML diretamente nas notas.</p><h3>Área recolhível</h3><pre class="language-text"><code>&lt;details&gt;
+&lt;summary&gt;Clique para expandir&lt;/summary&gt;
+
+Conteúdo oculto.
+
+&lt;/details&gt;</code></pre><h3>Quebra de linha</h3><pre class="language-text"><code>&lt;br&gt;</code></pre><h3>Destaque</h3><pre class="language-text"><code>&lt;mark&gt;Texto destacado&lt;/mark&gt;</code></pre><h3>Teclas</h3><pre class="language-text"><code>&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;P&lt;/kbd&gt;</code></pre><h3>Div e span</h3><pre class="language-text"><code>&lt;div&gt;
+Conteúdo
+&lt;/div&gt;
+
+&lt;span&gt;Texto&lt;/span&gt;</code></pre></section><hr>
+<section id="comentarios"><h2>23. Comentários ocultos</h2><p>Comentários não aparecem na visualização da nota.</p><h3>Comentário inline</h3><pre class="language-text"><code>Texto visível %% comentário oculto %% continua aqui.</code></pre><h3>Comentário em bloco</h3><pre class="language-text"><code>%%
+Este comentário
+pode ocupar
+várias linhas.
+%%</code></pre></section><hr>
+<section id="notas-rodape"><h2>24. Notas de rodapé</h2><h3>Rodapé simples</h3><pre class="language-text"><code>Texto com nota[^1]
+
+[^1]: Explicação da nota.</code></pre><h3>Rodapé nomeado</h3><pre class="language-text"><code>Texto com nota[^observacao]
+
+[^observacao]: Explicação da observação.</code></pre><h3>Rodapé inline</h3><pre class="language-text"><code>Texto com nota inline.^[Esta é uma nota inline.]</code></pre></section><hr>
+<section id="escapar"><h2>25. Escapar caracteres</h2><p>Use <code>\</code> antes de caracteres especiais para exibi-los literalmente.</p><div class="table-wrapper"><table>
+<thead><tr><th>Quero mostrar</th><th>Digite</th></tr></thead>
+<tbody>
+<tr><td><code>*texto*</code></td><td><code>\*texto\*</code></td></tr>
+<tr><td><code>_texto_</code></td><td><code>\_texto\_</code></td></tr>
+<tr><td><code>#tag</code></td><td><code>\#tag</code></td></tr>
+<tr><td><code>`código`</code></td><td><code>\`código\`</code></td></tr>
+<tr><td><code>~texto~</code></td><td><code>\~texto\~</code></td></tr>
+<tr><td>1. item sem virar lista</td><td><code>1\. item</code></td></tr>
+<tr><td>[[Nota]] sem virar link</td><td><code>\[\[Nota\]\]</code></td></tr>
+<tr><td>![[Nota]] sem virar embed</td><td><code>!\[\[Nota\]\]</code></td></tr>
+<tr><td>> citação sem virar citação</td><td><code>\&gt; citação</code></td></tr>
+<tr><td>$fórmula$ sem virar fórmula</td><td><code>\$fórmula\$</code></td></tr>
+</tbody></table></div></section><hr>
+<section id="query-blocks"><h2>26. Query blocks</h2><p>Query blocks exibem resultados de busca dentro da nota.</p><h3>Buscar tag</h3><pre class="language-text"><code>```query
+tag:#projeto
+```</code></pre><h3>Buscar pasta</h3><pre class="language-text"><code>```query
+path:&quot;Projetos&quot;
+```</code></pre><h3>Buscar palavra</h3><pre class="language-text"><code>```query
+ferias
+```</code></pre></section><hr>
+<section id="atalhos"><h2>27. Atalhos úteis</h2><div class="table-wrapper"><table>
+<thead><tr><th>Atalho</th><th>Função</th></tr></thead>
+<tbody>
+<tr><td>Ctrl + N</td><td>Nova nota</td></tr>
+<tr><td>Ctrl + O</td><td>Abrir nota</td></tr>
+<tr><td>Ctrl + P</td><td>Command Palette</td></tr>
+<tr><td>Ctrl + E</td><td>Alternar modo de edição/leitura</td></tr>
+<tr><td>Ctrl + Shift + F</td><td>Busca global</td></tr>
+<tr><td>Ctrl + ,</td><td>Configurações</td></tr>
+<tr><td><code>[[</code></td><td>Inserir link interno</td></tr>
+<tr><td><code>![[</code></td><td>Inserir embed</td></tr>
+<tr><td><code>#</code></td><td>Inserir tag</td></tr>
+</tbody></table></div><p>No macOS, normalmente use <code>Cmd</code> no lugar de <code>Ctrl</code>.</p></section><hr>
+</main>
+</body>
+</html>
