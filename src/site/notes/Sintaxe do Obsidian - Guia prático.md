@@ -3,7 +3,7 @@
 ---
 
 
-> Referência compacta para uso diário. Compatível com Obsidian e Digital Garden.
+> Referência rápida de Markdown + recursos nativos do Obsidian.
 
 ---
 
@@ -19,14 +19,14 @@
 |Negrito + Itálico|`***texto***`|
 |Riscado|`~~texto~~`|
 |Destaque|`==texto==`|
-|Código|`` `texto` ``|
+|Código inline|`` `texto` ``|
 |Subscrito|`H~2~O`|
 |Sobrescrito|`X^2^`|
 |Linha horizontal|`---`|
 
 ---
 
-# Listas e Tarefas
+# Listas
 
 |Recurso|Sintaxe|
 |---|---|
@@ -50,9 +50,9 @@
 
 # Tabelas
 
-Tabela básica:
+Tabela simples:
 
-```md
+```text
 | Nome | Setor |
 |------|------|
 | João | DAP |
@@ -87,106 +87,66 @@ Alinhamento:
 
 ---
 
-# 📌 Recursos Exclusivos do Obsidian
+# Wikilinks
 
-## Wikilinks
-
-Criar link para uma nota:
-
-```md
+```text
 [[Projeto]]
-```
 
-Alias:
-
-```md
 [[Projeto|Meu Projeto]]
-```
 
-Link para seção:
-
-```md
 [[Projeto#Cronograma]]
-```
 
-Link para bloco:
-
-```md
 [[Projeto#^prazo]]
 ```
 
 ---
 
-## Embeds (Incorporação)
+# Embeds
 
-Nota inteira:
-
-```md
+```text
 ![[Projeto]]
-```
 
-Seção:
-
-```md
 ![[Projeto#Cronograma]]
-```
 
-Bloco:
-
-```md
 ![[Projeto#^prazo]]
 ```
 
 ---
 
-## Referências de Bloco
+# Referências de Bloco
 
-Criar:
+Criar bloco:
 
-```md
+```text
 Prazo final: 30/06/2026
 ^prazo
 ```
 
 Usar:
 
-```md
+```text
 [[Projeto#^prazo]]
-```
 
-Incorporar:
-
-```md
 ![[Projeto#^prazo]]
 ```
 
 ---
 
-## Tags
+# Tags
 
-Tag simples:
-
-```md
+```text
 #projeto
-```
 
-Hierárquica:
-
-```md
 #projeto/dap
-```
 
-Multinível:
-
-```md
 #projeto/dap/ferias
 ```
 
 ---
 
-# 📦 Callouts
+# Callouts
 
-## Tipos disponíveis
+Tipos disponíveis:
 
 ```text
 note
@@ -204,107 +164,107 @@ example
 quote
 ```
 
-### Nota
+Nota:
 
-```md
+```text
 > [!note]
 > Conteúdo
 ```
 
-### Dica
+Dica:
 
-```md
+```text
 > [!tip]
 > Conteúdo
 ```
 
-### Aviso
+Aviso:
 
-```md
+```text
 > [!warning]
 > Conteúdo
 ```
 
-### Perigo
+Perigo:
 
-```md
+```text
 > [!danger]
 > Conteúdo
 ```
 
-### Recolhível aberto
+Recolhível aberto:
 
-```md
+```text
 > [!info]+ Detalhes
 > Conteúdo
 ```
 
-### Recolhível fechado
+Recolhível fechado:
 
-```md
+```text
 > [!info]- Detalhes
 > Conteúdo
 ```
 
 ---
 
-# 🖼️ Imagens e Arquivos
+# Imagens e Arquivos
 
 Imagem:
 
-```md
+```text
 ![[imagem.png]]
 ```
 
 Redimensionar:
 
-```md
+```text
 ![[imagem.png|300]]
 ```
 
 Largura x Altura:
 
-```md
+```text
 ![[imagem.png|300x200]]
 ```
 
 PDF:
 
-```md
+```text
 [[arquivo.pdf]]
 ```
 
 Página específica:
 
-```md
+```text
 ![[arquivo.pdf#page=5]]
 ```
 
 Áudio:
 
-```md
+```text
 ![[audio.mp3]]
 ```
 
 Vídeo:
 
-```md
+```text
 ![[video.mp4]]
 ```
 
 ---
 
-# 💻 Código
+# Código
 
 Inline:
 
-```md
+```text
 `const x = 10`
 ```
 
 Bloco:
 
-````md
+````text
 ```javascript
 const x = 10;
 ```
@@ -327,99 +287,9 @@ css
 
 ---
 
-# 📊 Mermaid (Diagramas)
-
-Fluxograma:
-
-````md
-```mermaid
-flowchart TD
-A --> B
-```
-````
-
-Sequência:
-
-````md
-```mermaid
-sequenceDiagram
-João->>Maria: Aprova?
-Maria->>João: Sim
-```
-````
-
-Tipos:
+# Frontmatter
 
 ```text
-flowchart
-sequenceDiagram
-classDiagram
-erDiagram
-stateDiagram-v2
-journey
-timeline
-pie
-gantt
-```
-
----
-
-# 🧮 LaTeX
-
-Inline:
-
-```md
-$E=mc^2$
-```
-
-Bloco:
-
-```md
-$
-E=mc^2
-$
-```
-
-Fração:
-
-```latex
-\frac{a}{b}
-```
-
-Somatório:
-
-```latex
-\sum_{i=1}^{n}
-```
-
-Integral:
-
-```latex
-\int_a^b
-```
-
-Raiz:
-
-```latex
-\sqrt{x}
-```
-
-Matriz:
-
-```latex
-\begin{bmatrix}
-1 & 2\\
-3 & 4
-\end{bmatrix}
-```
-
----
-
-# ⚙️ Frontmatter
-
-Metadados da nota:
-
-```yaml
 ---
 title: Projeto Férias
 
@@ -438,11 +308,99 @@ updated: 2026-06-08
 
 ---
 
-# 🌐 HTML Útil
+# LaTeX
+
+Inline:
+
+```text
+$E=mc^2$
+```
+
+Bloco:
+
+```text
+$
+E=mc^2
+$
+```
+
+Fração:
+
+```text
+\frac{a}{b}
+```
+
+Somatório:
+
+```text
+\sum_{i=1}^{n}
+```
+
+Integral:
+
+```text
+\int_a^b
+```
+
+Raiz:
+
+```text
+\sqrt{x}
+```
+
+Matriz:
+
+```text
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+```
+
+---
+
+# Mermaid
+
+Tipos:
+
+```text
+flowchart
+sequenceDiagram
+classDiagram
+erDiagram
+stateDiagram-v2
+journey
+timeline
+pie
+gantt
+```
+
+Fluxograma:
+
+````text
+```mermaid
+flowchart TD
+A --> B
+```
+````
+
+Sequência:
+
+````text
+```mermaid
+sequenceDiagram
+João->>Maria: Aprova?
+Maria->>João: Sim
+```
+````
+
+---
+
+# HTML Útil
 
 Recolhível:
 
-```html
+```text
 <details>
 <summary>Clique aqui</summary>
 
@@ -453,34 +411,48 @@ Conteúdo
 
 Teclas:
 
-```html
+```text
 <kbd>Ctrl</kbd> + <kbd>P</kbd>
 ```
 
 Quebra de linha:
 
-```html
+```text
 <br>
 ```
 
 ---
 
-# 🔍 Query Blocks
+# Query Blocks
 
 Buscar tag:
 
-```query
+```text
 tag:#projeto
 ```
 
 Buscar pasta:
 
-```query
+```text
 path:"Projetos"
 ```
 
 Buscar texto:
 
-```query
+```text
 ferias
+```
+
+---
+
+# Escapar Caracteres
+
+```text
+\*texto\*
+
+\#tag
+
+\[\[Nota\]\]
+
+\|
 ```
