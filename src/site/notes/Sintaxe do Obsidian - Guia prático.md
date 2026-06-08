@@ -3,7 +3,7 @@
 ---
 
 
-> Referência rápida de Markdown + recursos nativos do Obsidian.
+> Referência rápida de Markdown + recursos nativos do Obsidian..
 
 ---
 
