@@ -8,15 +8,9 @@ Fiz todo o desenvolvimento em DOS, para praticar os códigos de script. Infelizm
 
 O script está funcional. Para mais praticidade, realizei o agendamento de tarefas, ferramenta nativa do windows, para que sempre que meu hd externo for conectado o script seja executado e faça o backup automaticamente, isso é bem interessante.
 
-Ainda não subi o projeto para o github, quem sabe eu faça isso futuramente. Por enquanto, segue o código pra quem se interessar:
+Ainda não subi o projeto para o github, quem sabe eu faça isso futuramente. Por enquanto, segue o código pra quem se interessar.
 
-[Backupator.bat](https://drive.google.com/file/d/1ec1abEE-LtK8Ru2wXOPPlfJbWUFzqKdu/view?usp=drive_link)
-[fazerbackup.bat](https://drive.google.com/file/d/1LHJhddvU-Nf_34oxZgAvHtCbLvG_7eNL/view?usp=drive_link)
-[initscript.bat](https://drive.google.com/file/d/1F06lb5WBGvvR2CEImK--oeT45zYGodcY/view?usp=drive_link)
-[logo.bat](https://drive.google.com/file/d/1bvK-4eSc0qXE3w84iUydCcQvhQkmz4Us/view?usp=drive_link)
-[log.txt](https://drive.google.com/file/d/1h7f9-UHrgfQywbuAE2XAN3Vm9lY9xJO4/view?usp=drive_link)
-[programados.txt](https://drive.google.com/file/d/1EyMRB84QYTYFNzOdp0eLcFnBDdSFNeDq/view?usp=drive_link)
-[tarefa.xml](https://drive.google.com/file/d/1AyywtPgLi8RjeAfc8Pf91vNhARMca5OR/view?usp=drive_link)
+
 
 Captura de tela do script em funcionamento:
 ![Pasted image 20260607211703.png](/img/user/Desenvolvimento/Pasted%20image%2020260607211703.png)
@@ -406,6 +400,59 @@ ping 127.0.0.1 -n 1 >nul 2>&1
 ::ping 127.0.0.1 -n 1 >nul 2>&1
 echo     ░                    ░  ░            ░ ░     ░    
 exit /b
+
+```
+
+### tarefa.xml
+
+```xml
+
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2022-05-07T13:01:17.3316439</Date>
+    <Author>...Autor...</Author>
+    <URI>\Backupator</URI>
+  </RegistrationInfo>
+  <Triggers>
+    <EventTrigger>
+      <Enabled>true</Enabled>
+      <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Microsoft-Windows-DriverFrameworks-UserMode/Operational"&gt;&lt;Select Path="Microsoft-Windows-DriverFrameworks-UserMode/Operational"&gt;*[System[Provider[@Name='Microsoft-Windows-DriverFrameworks-UserMode'] and EventID=2003]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
+    </EventTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>...Id do Usuário...</UserId>
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>false</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>PT72H</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Users\...\BACKUPATOR\initscript.bat</Command>
+      <WorkingDirectory>C:\Users\...\BACKUPATOR\</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>
 
 ```
 
