@@ -1,10 +1,17 @@
 {
   "/": [
+    "📖 Marginália",
+    "📡 Na Escuta"
+  ],
+  "/📖 Marginália": [
     "Primeira publicação",
     "Publique seu próprio Jardim Digital",
-    "Desenvolvimento"
+    "Sintaxe do Obsidian - Guia prático"
   ],
-  "/Desenvolvimento": [
+  "/📡 Na Escuta": [
+    "BACKUPATOR"
+  ],
+  "/📡 Na Escuta/BACKUPATOR": [
     "Backupator - uma brincadeira para praticar DOS"
   ]
 }
