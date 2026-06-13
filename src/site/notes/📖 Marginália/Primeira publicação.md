@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/marginalia/primeira-publicacao/","tags":["gardenEntry"],"noteIcon":"","created":"2026-06-07T21:46:20.446-03:00","updated":"2026-06-07T21:41:00.123-03:00","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/marginalia/primeira-publicacao/","tags":["gardenEntry"],"dg-note-properties":{}}
 ---
 
 Olá! Me chamo Guilherme e vou compartilhar algumas anotações e informações que eu considerar úteis por aqui.
