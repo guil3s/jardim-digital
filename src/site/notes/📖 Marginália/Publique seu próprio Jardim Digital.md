@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/marginalia/publique-seu-proprio-jardim-digital/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/marginalia/publique-seu-proprio-jardim-digital/","created":"2026-06-08T15:38:10.101-03:00","updated":"2026-06-08T15:36:25.071-03:00","dg-note-properties":{}}
 ---
 
 O Obsidian é um ótimo software para a anotações de ideias. Há quem diga que ele simula a organização de ideias tal como o cérebro humano, servindo, assim, como um segundo cérebro, provavelmente com uma memoria melhor que a sua, risos.

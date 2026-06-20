@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/na-escuta/backupator/backupator-uma-brincadeira-para-praticar-dos/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/na-escuta/backupator/backupator-uma-brincadeira-para-praticar-dos/","created":"2026-06-07T21:46:20.446-03:00","updated":"2026-06-09T21:35:12.231-03:00","dg-note-properties":{}}
 ---
 
 Há alguns anos atrás atrás comecei a escrever um script para automatizar o Backup de alguns arquivos do meu notebook para meu hd externo.
