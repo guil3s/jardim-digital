@@ -1,8 +1,8 @@
 ---
-{"dg-publish":true,"permalink":"/na-escuta/backupator/backupator-uma-brincadeira-para-praticar-dos/","created":"2026-06-07T21:46:20.446-03:00","updated":"2026-06-20T23:42:56.660-03:00","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/na-escuta/backupator/backupator-uma-brincadeira-para-praticar-dos/","created":"2026-06-12T09:54:26.138-03:00","updated":"2026-06-22T12:39:41.402-03:00","dg-note-properties":{}}
 ---
 
-Há alguns anos atrás (em 2022) comecei a escrever um script para automatizar o Backup de alguns arquivos do meu notebook para meu hd externo.
+Há alguns anos atrás (em 2022) escrevi esse script para automatizar o Backup de alguns arquivos do meu notebook para meu hd externo.
 
 Fiz todo o desenvolvimento em DOS, para praticar os códigos de script. Infelizmente não consegui me furtar de usar powershell em alguns momentos do código, como você poderá perceber.
 
