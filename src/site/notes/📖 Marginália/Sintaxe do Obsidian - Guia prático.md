@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/marginalia/sintaxe-do-obsidian-guia-pratico/","created":"2026-06-12T09:54:25.606-03:00","updated":"2026-06-08T19:52:56.492-03:00","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/marginalia/sintaxe-do-obsidian-guia-pratico/","created":"2026-06-08T15:37:49.659-03:00","updated":"2026-06-08T19:52:56.492-03:00","dg-note-properties":{}}
 ---
 
 <iframe  
