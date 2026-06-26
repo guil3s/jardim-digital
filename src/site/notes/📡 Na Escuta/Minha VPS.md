@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/na-escuta/minha-vps/","created":"2026-06-25T21:09:39.774-03:00","updated":"2026-06-25T21:13:31.400-03:00","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/na-escuta/minha-vps/","created":"2026-06-25T21:09:39.774-03:00","updated":"2026-06-25T21:15:15.846-03:00","dg-note-properties":{}}
 ---
 
 Contratei uma VPS há menos de uma semana. Por enquanto, a brincadeira rendeu isso aqui:
@@ -19,7 +19,7 @@ Contratei uma VPS há menos de uma semana. Por enquanto, a brincadeira rendeu is
 - Nginx Proxy Manager
     
 - Rede Docker compartilhada para os serviços
-    
+
 
 ---
 
@@ -28,7 +28,7 @@ Contratei uma VPS há menos de uma semana. Por enquanto, a brincadeira rendeu is
 ## Domínio institucional
 
 - migliorini.cloud
-    
+
 
 Subdomínios em operação:
 
@@ -37,7 +37,7 @@ Subdomínios em operação:
 - nuvem.migliorini.cloud
     
 - cofre.migliorini.cloud
-    
+
 
    
 
@@ -205,14 +205,14 @@ Sistema implantado:
 
 ```
 Containers
-        │
-        ▼
+   │
+   ▼
 Backrest
-        │
-        ▼
+   │
+   ▼
 Restic
-        │
-        ▼
+   │
+   ▼
 Google Drive
 ```
 
