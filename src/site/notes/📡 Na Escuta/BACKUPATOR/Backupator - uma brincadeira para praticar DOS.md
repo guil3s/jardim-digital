@@ -1,12 +1,14 @@
 ---
-{"dg-publish":true,"permalink":"/na-escuta/backupator/backupator-uma-brincadeira-para-praticar-dos/","created":"2026-06-12T09:54:26.138-03:00","updated":"2026-06-22T12:39:41.402-03:00","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/na-escuta/backupator/backupator-uma-brincadeira-para-praticar-dos/","created":"2026-06-12T09:54:26.138-03:00","updated":"2026-06-26T22:14:24.432-03:00","dg-note-properties":{}}
 ---
 
-Há alguns anos atrás (em 2022) escrevi esse script para automatizar o Backup de alguns arquivos do meu notebook para meu hd externo.
+Há alguns anos atrás (em 2022) escrevi esse script "gambiarrento" para automatizar o Backup de alguns arquivos do meu notebook para meu hd externo.
 
 Fiz todo o desenvolvimento em DOS, para praticar os códigos de script. Infelizmente não consegui me furtar de usar powershell em alguns momentos do código, como você poderá perceber.
 
-O script está funcional. Para mais praticidade, realizei o agendamento de tarefas, ferramenta nativa do windows, para que sempre que meu hd externo for conectado o script seja executado e faça o backup automaticamente, isso é bem interessante.
+O script está funcional, mas é puramente experimental e não se propõe a resolver todos os seus problemas com backups.
+
+Para mais praticidade, realizei o agendamento de tarefas, ferramenta nativa do windows, para que sempre que meu hd externo for conectado o script seja executado e faça o backup automaticamente, isso é bem interessante para o dia a dia.
 
 Ainda não subi o projeto para o github, quem sabe eu faça isso futuramente. Por enquanto, segue o código pra quem se interessar.
 
